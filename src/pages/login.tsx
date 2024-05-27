@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 export default function UserLogin() { // 大文字始まり
   const [email , setEmail] = useState('');
@@ -9,20 +10,24 @@ export default function UserLogin() { // 大文字始まり
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = await fetch('https://ui-wonderland-api.vercel.app/auth/login', {
-      method: 'POST',
+    try {
+    const response = await axios.post('https://ui-wonderland-api.vercel.app/auth/login', {
+      email,
+      password,
+    }, {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({email, password}),
     });
 
-    const data = await response.json();
-    if (response.ok) {
-      Cookies.set('accessToken', data.access_token, { expires: 1 }); // 有効期限1日
+    if (response.status === 200) {
+      Cookies.set('accessToken', response.data.access_token, { expires: 1 }); // 有効期限1日
       alert('ログインに成功しました。');
     } else {
       alert('ログインに失敗しました。');
+    } 
+  } catch (error) {
+      alert('ログインに失敗しました');
     }
   } 
 
