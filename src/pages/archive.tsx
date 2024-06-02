@@ -20,7 +20,7 @@ export default function Archive() {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ width: "20%", maxWidth: "240px" }}>
-        <IconButton
+        <IconButton 
           onClick={toggleOpen}
           size="large"
           edge="start"
@@ -30,8 +30,8 @@ export default function Archive() {
           <MenuIcon />
         </IconButton>
         <Drawer anchor="left" open={open} onClose={toggleOpen}>
-          <ul>
-            <Typography variant="h2">パーツ</Typography>
+          <ul style={{padding: '1.25rem'}}>
+            <Typography variant="h2" sx={{fontSize:'1.5rem'}}>パーツ</Typography>
             <li>ヘッダー</li>
             <li>フッター</li>
             <li>見出し</li>
@@ -39,15 +39,75 @@ export default function Archive() {
           </ul>
         </Drawer>
       </div>
-      <main style={{ width: "80%" }}>
-        <ul>
+      <main style={{ width: "80%" , margin:'40px'}}>
+        <ul style={{display: 'grid', placeItems: 'center', gap: '2rem',gridTemplateColumns:'repeat(3,1fr)'}}>
           <li>
-            <Card sx={{ maxWidth: 275 }}>
+            <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <Typography variant="h5" component="div">
                   見出し1
                 </Typography>
 
+                <Typography variant="body2" style={{ marginTop: "8px" }}>
+                  テキストテキスト
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">コードを見る</Button>
+              </CardActions>
+            </Card>
+          </li>
+          <li>
+          <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ヘッダー
+                </Typography>
+                <Typography variant="body2" style={{ marginTop: "8px" }}>
+                  テキストテキスト
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">コードを見る</Button>
+              </CardActions>
+            </Card>
+          </li>
+          <li>
+          <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ボタン
+                </Typography>
+                <Typography variant="body2" style={{ marginTop: "8px" }}>
+                  テキストテキスト
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">コードを見る</Button>
+              </CardActions>
+            </Card>
+          </li>
+          <li>
+          <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ボタン
+                </Typography>
+                <Typography variant="body2" style={{ marginTop: "8px" }}>
+                  テキストテキスト
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">コードを見る</Button>
+              </CardActions>
+            </Card>
+          </li>
+          <li>
+          <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ボタン
+                </Typography>
                 <Typography variant="body2" style={{ marginTop: "8px" }}>
                   テキストテキスト
                 </Typography>
