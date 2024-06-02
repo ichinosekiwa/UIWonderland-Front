@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextField, Button, Grid } from '@mui/material';
+import { TextField, Button, Grid, Typography } from '@mui/material';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -33,11 +33,15 @@ export default function UserLogin() { // 大文字始まり
 
 
   return (
-    <Grid
-    container
-    justifyContent="center"
-    mt={20}
+    <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      margin: 120,
+    }}
   >
+    <Typography variant='h4' fontWeight="fontWeightRegular">Login</Typography>
     <Grid item>
       <form onSubmit={handleSubmit} noValidate>
         <Grid
@@ -75,6 +79,6 @@ export default function UserLogin() { // 大文字始まり
         </Grid>
       </form>
     </Grid>
-  </Grid>
+  </div>
 );
 };
