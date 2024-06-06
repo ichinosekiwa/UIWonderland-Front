@@ -40,7 +40,11 @@ export default function Headline () {
         </div>
         <div style={{width:"30%"}}>
             <Typography variant='h3' sx={{ fontSize: "1.25rem"}}>HTML</Typography>
-            <p>aaaaaaa</p>
+            <div style={{background:"#333", color:"#fff", padding:"12px"}}>
+                
+<code>
+  <h1>aaaa</h1>
+</code></div>
         </div>
         <div style={{width:"30%"}}>
             <Typography variant='h3' sx={{ fontSize: "1.25rem"}}>CSS</Typography>
