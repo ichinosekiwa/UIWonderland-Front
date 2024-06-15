@@ -1,47 +1,34 @@
+import React, { useState } from "react";
 import {
   Button,
   Card,
   CardActions,
   CardContent,
-  Drawer,
-  IconButton,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
+import Sidebar from "./_sidebar"; // Sidebar コンポーネントを使用
 
 export default function Archive() {
   const [open, setOpen] = useState(false);
+
+  // トグル関数の定義（状態の更新）
   const toggleOpen = () => {
     setOpen(!open);
   };
 
-  const cardData = [{ title: "タイトル", content: "xxxxxxx" }];
+  const handleClose = (
+    event: {},
+    reason: "backdropClick" | "escapeKeyDown",
+  ) => {
+    if (reason !== "backdropClick") {
+      setOpen(false);
+    }
+  };
+
+  const cardData = [{ title: "左にボーダー", contributor: "ichinose" }];
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "20%", maxWidth: "240px" }}>
-        <IconButton
-          style={{ padding: "1.25rem" }}
-          onClick={toggleOpen}
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Drawer anchor="left" open={open} onClose={toggleOpen}>
-          <ul style={{ padding: "1.25rem" }}>
-            <Typography variant="h2" sx={{ fontSize: "1.5rem" }}>
-              パーツ
-            </Typography>
-            <li>ヘッダー</li>
-            <li>フッター</li>
-            <li>見出し</li>
-            <li>ボタン</li>
-          </ul>
-        </Drawer>
-      </div>
+      <Sidebar open={open} toggleOpen={toggleOpen} handleClose={handleClose} />
       <main style={{ width: "80%", height: "100vh", margin: "40px" }}>
         <ul
           style={{
@@ -54,11 +41,24 @@ export default function Archive() {
             <li key={index}>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
+                  <img
+                    src="https://pote-chil.com/css-stock/img/snippets/heading/23.svg"
+                    alt="写真が入る？"
+                  ></img>
                   <Typography variant="h5" component="div">
                     {card.title}
                   </Typography>
-                  <Typography variant="body2" style={{ marginTop: "8px" }}>
-                    {card.content}
+                  <Typography
+                    variant="body2"
+                    component="div"
+                    style={{
+                      marginTop: "8px",
+                      fontSize: "12px",
+                      textAlign: "right",
+                    }}
+                  >
+                   投稿者：<span>{card.contributor}</span>
+
                   </Typography>
                 </CardContent>
                 <CardActions>

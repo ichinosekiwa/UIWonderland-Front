@@ -1,57 +1,65 @@
-import { Drawer, IconButton, Typography } from '@mui/material'
-import React, { useState } from 'react'
-import MenuIcon from "@mui/icons-material/Menu";
-   
+import { Drawer, IconButton, Typography } from "@mui/material";
+import React, { useState } from "react";
+import Sidebar from "../../_sidebar"; // Sidebar コンポーネントを使用
 
-export default function Headline () {
-    const [open, setOpen] = useState(false);
-    const toggleOpen = () => {
-      setOpen(!open);
-    };
+export default function Headline() {
+  const [open, setOpen] = useState(false);
+
+  // トグル関数の定義（状態の更新）
+  const toggleOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleClose = (
+    event: {},
+    reason: "backdropClick" | "escapeKeyDown",
+  ) => {
+    if (reason !== "backdropClick") {
+      setOpen(false);
+    }
+  };
+
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "20%", maxWidth: "240px" }}>
-        <IconButton style={{ padding: "1.25rem" }}
-          onClick={toggleOpen}
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Drawer anchor="left" open={open} onClose={toggleOpen}>
-          <ul style={{ padding: "1.25rem" }}>
-            <Typography variant="h2" sx={{ fontSize: "1.5rem" }}>
-              パーツ
-            </Typography>
-            <li>ヘッダー</li>
-            <li>フッター</li>
-            <li>見出し</li>
-            <li>ボタン</li>
-          </ul>
-        </Drawer>
-      </div>
+      <Sidebar open={open} toggleOpen={toggleOpen} handleClose={handleClose} />
       <main style={{ width: "80%", height: "100vh", margin: "40px" }}>
-        <Typography variant='h1' sx={{ fontSize: "2rem"}}>見出し のデザイン</Typography>
-        <section style={{ display: "flex", gap:"1.5rem", justifyContent:"start" }}>
-        <div style={{width:"400px", height:"300px", background:"#f4f4f4"}}>
-            <img src="" alt="写真が入る？"></img>
-        </div>
-        <div style={{width:"30%"}}>
-            <Typography variant='h3' sx={{ fontSize: "1.25rem"}}>HTML</Typography>
-            <div style={{background:"#333", color:"#fff", padding:"12px"}}>
-                
-<code>
-  <h1>aaaa</h1>
-</code></div>
-        </div>
-        <div style={{width:"30%"}}>
-            <Typography variant='h3' sx={{ fontSize: "1.25rem"}}>CSS</Typography>
-            <p>aaaaaaa</p>
-        </div>
+        <Typography variant="h1" sx={{ fontSize: "2rem" }}>
+          見出し のデザイン
+        </Typography>
+        <section
+          style={{ display: "flex", gap: "1.5rem", justifyContent: "start" }}
+        >
+          <div
+            style={{ width: "400px", height: "auto", background: "#f4f4f4" }}
+          >
+            {/* 仮で入れておく */}
+            <img
+              src="https://pote-chil.com/css-stock/img/snippets/heading/23.svg"
+              alt="写真が入る？"
+            ></img>
+          </div>
+          <div style={{ width: "30%" }}>
+            <Typography variant="h3" sx={{ fontSize: "1.25rem" }}>
+              HTML
+            </Typography>
+            <div style={{ background: "#333", color: "#fff", padding: "12px" }}>
+              <code>
+                <h1>aaaa</h1>
+              </code>
+            </div>
+          </div>
+          <div style={{ width: "30%" }}>
+            <Typography variant="h3" sx={{ fontSize: "1.25rem" }}>
+              CSS
+            </Typography>
+            <div style={{ background: "#333", color: "#fff", padding: "12px" }}>
+              <code>
+                <h1>aaaa</h1>
+              </code>
+            </div>
+          </div>
         </section>
       </main>
     </div>
-  )
+  );
 }
