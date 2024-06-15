@@ -57,7 +57,9 @@ export default function Headline() {
           </div>
 
           {/* HTMLブロック */}
-          <div style={{ width: "100%", maxWidth: "600px", marginBottom:"32px" }}>
+          <div
+            style={{ width: "100%", maxWidth: "600px", marginBottom: "32px" }}
+          >
             <Typography
               variant="h3"
               sx={{ fontSize: "1rem", marginBottom: "8px" }}
@@ -114,27 +116,27 @@ export default function Headline() {
               </IconHead>
               <code>
                 <span>
-                  <span style={{ color: "#7ee787" }}>.heading-1{" "}</span>
+                  <span style={{ color: "#7ee787" }}>.heading-1 </span>
                   <span style={{ color: "#fff" }}>&#123;</span> {/* 変更部分 */}
                   <br />
                   <span style={{ marginLeft: "1em" }}>
                     <span style={{ color: "#79c0ff" }}>padding</span>
                     <span style={{ color: "#fff" }}>:</span>
-                    <span style={{ color: "#fff" }}>{" "}.5em .7em</span>
+                    <span style={{ color: "#fff" }}> .5em .7em</span>
                     <span style={{ color: "#fff" }}>;</span>
                   </span>
                   <br />
                   <span style={{ marginLeft: "1em" }}>
                     <span style={{ color: "#79c0ff" }}>border-left</span>
                     <span style={{ color: "#fff" }}>:</span>
-                    <span style={{ color: "#fff" }}>{" "}5px solid #2589d0</span>
+                    <span style={{ color: "#fff" }}> 5px solid #2589d0</span>
                     <span style={{ color: "#fff" }}>;</span>
                   </span>
                   <br />
                   <span style={{ marginLeft: "1em" }}>
                     <span style={{ color: "#79c0ff" }}>color</span>
                     <span style={{ color: "#fff" }}>:</span>
-                    <span style={{ color: "#fff" }}>{" "}#333333</span>
+                    <span style={{ color: "#fff" }}> #333333</span>
                     <span style={{ color: "#fff" }}>;</span>
                   </span>
                   <br />
