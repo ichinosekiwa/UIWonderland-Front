@@ -57,8 +57,7 @@ export default function Archive() {
                       textAlign: "right",
                     }}
                   >
-                   投稿者：<span>{card.contributor}</span>
-
+                    投稿者：<span>{card.contributor}</span>
                   </Typography>
                 </CardContent>
                 <CardActions>

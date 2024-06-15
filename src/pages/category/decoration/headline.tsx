@@ -1,4 +1,4 @@
-import { Drawer, IconButton, Typography } from "@mui/material";
+import { Drawer, IconButton, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
 import Sidebar from "../../_sidebar"; // Sidebar コンポーネントを使用
 
@@ -19,15 +19,32 @@ export default function Headline() {
     }
   };
 
+  // ::beforeでアイコンをつける
+  const IconHead = styled(Typography)({
+    position: "relative",
+    paddingLeft: "32px",
+    "&::before": {
+      content: '"</>"',
+      position: "absolute",
+      left: 0,
+      top: 0,
+      fontSize: "16px",
+      color: "#2589d0",
+    },
+  });
+
   return (
     <div style={{ display: "flex" }}>
       <Sidebar open={open} toggleOpen={toggleOpen} handleClose={handleClose} />
-      <main style={{ width: "80%", height: "100vh", margin: "40px" }}>
-        <Typography variant="h1" sx={{ fontSize: "2rem" }}>
+      <main style={{ width: "80%", height: "100vh", margin: "80px auto" }}>
+        <Typography
+          variant="h1"
+          sx={{ fontSize: "1.5rem", marginBottom: "32px" }}
+        >
           見出し のデザイン
         </Typography>
         <section
-          style={{ display: "flex", gap: "1.5rem", justifyContent: "start" }}
+          style={{ display: "flex", gap: "1.5rem", flexDirection: "column" }}
         >
           <div
             style={{ width: "400px", height: "auto", background: "#f4f4f4" }}
@@ -38,23 +55,91 @@ export default function Headline() {
               alt="写真が入る？"
             ></img>
           </div>
-          <div style={{ width: "30%" }}>
-            <Typography variant="h3" sx={{ fontSize: "1.25rem" }}>
-              HTML
+
+          {/* HTMLブロック */}
+          <div style={{ width: "100%", maxWidth: "600px", marginBottom:"32px" }}>
+            <Typography
+              variant="h3"
+              sx={{ fontSize: "1rem", marginBottom: "8px" }}
+            >
+              HTMLをコピペする
             </Typography>
             <div style={{ background: "#333", color: "#fff", padding: "12px" }}>
+              <IconHead
+                variant="h4"
+                sx={{ fontSize: "1rem" }}
+                style={{ position: "relative", marginBottom: "8px" }}
+              >
+                HTML
+              </IconHead>
               <code>
-                <h1>aaaa</h1>
+                <span>
+                  <span style={{ color: "#7ee787" }}>
+                    <span style={{ color: "#fff" }}>&lt;</span>h2
+                  </span>{" "}
+                  <span style={{ color: "#79c0ff" }}>class</span>
+                  <span style={{ color: "#79c0ff" }}>
+                    <span style={{ color: "#fff" }}>=</span>
+                    <span style={{ color: "#fff" }}>"</span>heading1
+                    <span style={{ color: "#fff" }}>"</span>
+                  </span>
+                  <span>&gt;</span>
+                </span>
+                CSS見出しデザイン
+                <span>
+                  <span style={{ color: "#79c0ff" }}>
+                    <span style={{ color: "#fff" }}>&lt;/</span>h2
+                  </span>
+                  <span>&gt;</span>
+                </span>
               </code>
             </div>
           </div>
-          <div style={{ width: "30%" }}>
-            <Typography variant="h3" sx={{ fontSize: "1.25rem" }}>
-              CSS
+
+          {/* CSSブロック */}
+          <div style={{ width: "100%", maxWidth: "600px" }}>
+            <Typography
+              variant="h3"
+              sx={{ fontSize: "1rem", marginBottom: "8px" }}
+            >
+              CSSをコピペする
             </Typography>
             <div style={{ background: "#333", color: "#fff", padding: "12px" }}>
+              <IconHead
+                variant="h4"
+                sx={{ fontSize: "1rem" }}
+                style={{ position: "relative", marginBottom: "8px" }}
+              >
+                CSS
+              </IconHead>
               <code>
-                <h1>aaaa</h1>
+                <span>
+                  <span style={{ color: "#7ee787" }}>.heading-1{" "}</span>
+                  <span style={{ color: "#fff" }}>&#123;</span> {/* 変更部分 */}
+                  <br />
+                  <span style={{ marginLeft: "1em" }}>
+                    <span style={{ color: "#79c0ff" }}>padding</span>
+                    <span style={{ color: "#fff" }}>:</span>
+                    <span style={{ color: "#fff" }}>{" "}.5em .7em</span>
+                    <span style={{ color: "#fff" }}>;</span>
+                  </span>
+                  <br />
+                  <span style={{ marginLeft: "1em" }}>
+                    <span style={{ color: "#79c0ff" }}>border-left</span>
+                    <span style={{ color: "#fff" }}>:</span>
+                    <span style={{ color: "#fff" }}>{" "}5px solid #2589d0</span>
+                    <span style={{ color: "#fff" }}>;</span>
+                  </span>
+                  <br />
+                  <span style={{ marginLeft: "1em" }}>
+                    <span style={{ color: "#79c0ff" }}>color</span>
+                    <span style={{ color: "#fff" }}>:</span>
+                    <span style={{ color: "#fff" }}>{" "}#333333</span>
+                    <span style={{ color: "#fff" }}>;</span>
+                  </span>
+                  <br />
+                  <span style={{ color: "#fff" }}>&#125;</span>
+                </span>
               </code>
             </div>
           </div>
