@@ -7,6 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import Sidebar from "./_sidebar"; // Sidebar コンポーネントを使用
+import Image from 'next/image';
+import Link from "next/link";
 
 export default function Archive() {
   const [open, setOpen] = useState(false);
@@ -41,10 +43,13 @@ export default function Archive() {
             <li key={index}>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                  <img
-                    src="https://pote-chil.com/css-stock/img/snippets/heading/23.svg"
-                    alt="写真が入る？"
-                  ></img>
+                <Image
+              src="https://pote-chil.com/css-stock/img/snippets/heading/23.svg"
+              alt="写真が入る？"
+              width={400} // 画像の幅
+              height={300} // 画像の高さ
+              layout="responsive" // 必要に応じてレイアウトを調整
+            />
                   <Typography variant="h5" component="div">
                     {card.title}
                   </Typography>
@@ -61,9 +66,9 @@ export default function Archive() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <a href="/category/decoration/headline">
+                  <Link href="/category/decoration/headline">
                     <Button size="small">コードを見る</Button>
-                  </a>
+                  </Link>
                 </CardActions>
               </Card>
             </li>

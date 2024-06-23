@@ -2,9 +2,12 @@ import { useState } from "react";
 import { TextField, Button, Grid, Typography } from "@mui/material";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useRouter } from 'next/router';
 
 export default function UserLogin() {
-  // 大文字始まり
+  
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,6 +31,7 @@ export default function UserLogin() {
       if (response.status === 200) {
         Cookies.set("accessToken", response.data.access_token, { expires: 1 }); // 有効期限1日
         alert("ログインに成功しました。");
+        await router.push('/archive'); // /archive へ遷移
       } else {
         alert("ログインに失敗しました。");
       }

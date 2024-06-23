@@ -1,6 +1,7 @@
 import { Drawer, IconButton, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
 import Sidebar from "../../_sidebar"; // Sidebar コンポーネントを使用
+import Image from "next/image";
 
 export default function Headline() {
   const [open, setOpen] = useState(false);
@@ -50,10 +51,13 @@ export default function Headline() {
             style={{ width: "400px", height: "auto", background: "#f4f4f4" }}
           >
             {/* 仮で入れておく */}
-            <img
+            <Image
               src="https://pote-chil.com/css-stock/img/snippets/heading/23.svg"
               alt="写真が入る？"
-            ></img>
+              width={400} // 画像の幅
+              height={300} // 画像の高さ
+              layout="responsive" // 必要に応じてレイアウトを調整
+            />
           </div>
 
           {/* HTMLブロック */}
@@ -82,8 +86,8 @@ export default function Headline() {
                   <span style={{ color: "#79c0ff" }}>class</span>
                   <span style={{ color: "#79c0ff" }}>
                     <span style={{ color: "#fff" }}>=</span>
-                    <span style={{ color: "#fff" }}>"</span>heading1
-                    <span style={{ color: "#fff" }}>"</span>
+                    <span style={{ color: "#fff" }}>&quot;</span>heading1
+                    <span style={{ color: "#fff" }}>&quot;</span>
                   </span>
                   <span>&gt;</span>
                 </span>
