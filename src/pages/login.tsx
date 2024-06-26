@@ -28,7 +28,7 @@ export default function UserLogin() {
         },
       );
 
-      if (response.status === 200) {
+           if (response.status === 200) {
         Cookies.set("accessToken", response.data.access_token, { expires: 1 }); // 有効期限1日
         alert("ログインに成功しました。");
         await router.push('/archive'); // /archive へ遷移
